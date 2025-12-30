@@ -65,6 +65,35 @@
         a.custom-link:active {
             color: #00ffff;           
         }
+      .slider {
+          position: relative;
+          width: 100%;           / 撐滿整個畫面寬度 /
+          height: 840px;         / 增加高度，畫面更大 /
+          margin: 0 auto;        / 水平置中（保險用） /
+          overflow: hidden;      / 超出範圍的圖片裁切 /
+          display: flex;
+          justify-content: center; / 確保內容不偏移 /
+        }
+/ 跑馬燈圖片 /
+        .slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;          / 圖片寬度撐滿 /
+          max-height: 100%;         / 圖片高度撐滿 /
+          object-fit: contain;    / 等比例裁切，不變形 /
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+        }
+/ 顯示中的圖片 /
+        .slide.active {
+          opacity: 1;
+        }
+        / --- 區塊設定 --- /
+        #section {
+            padding: 80px 10%;
+            min-height: 40vh;
+        }
 </style>
 </head>
 <body>
@@ -81,7 +110,32 @@
 
 <!-- 首頁 -->
 <div id="home" class="hero">
-<img src="png/1010151.ORF_1.jpg" width="400">
+            <section class="slider">
+  <!-- 跑馬燈圖片 -->
+          <img src="png/1.jpg" class="slide.active">
+          <img src="png/2.jpg" class="slide">
+          <img src="png/3.jpg" class="slide">
+          <img src="png/4.jpg" class="slide">
+          <img src="png/5.jpg" class="slide">
+          <img src="png/1.jpg" class="slide">
+          <img src="png/2.jpg" class="slide">
+          <img src="png/3.jpg" class="slide">
+          <img src="png/4.jpg" class="slide">
+          <img src="png/5.jpg" class="slide">
+  <!-- 圖片上的文字 -->
+      </section>
+
+
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let current = 0;
+
+        setInterval(() => {
+            slides[current].classList.remove("active");
+            current = (current + 1)% slides.length;
+            slides[current].classList.add("active");
+        },3000);
+    </script>
 <h1>正修光火舞蹈社</h1>
 
    

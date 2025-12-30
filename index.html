@@ -28,18 +28,13 @@
         font-weight: bold;
     }
 .hero {
-    position: relative;
-    padding-top: 80px; /* 預留 header /
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('hero.jpg') center top/cover no-repeat;
-    height: 60vh;       / 電腦版 */
-    max-height: 500px;
-    min-height: 300px;
-}
+        height: auto;
+        background: center/cover;
+        text-align: center;
+        flex-direction: column;
+        position: relative;
+        padding-top: 80px;
+    }
     .hero h1 {
         font-size: 3rem;
         text-shadow: 0 0 10px #ff6600;
@@ -68,41 +63,32 @@
         a.custom-link:active {
             color: #00ffff;           
         }
-     .slider {
-    position: relative;
-    width: 100%;
-    height: 60vh;        
-    max-height: 500px;
-    overflow: hidden;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-}
-@media (max-width: 768px) {
-    .hero, .slider {
-        height: 40vh;    
-        max-height: 300px;
-    }
-}
-.hero {
-    background-position: top center;
-}
-
-.slide:first-child {
-    object-position: top center;    / slider 第一張 
-}
+.slider {
+          position: relative;
+          width: 100%;
+          height: calc(100vh - 80px);
+          margin: 0 auto;
+          overflow: hidden;
+          display: flex;
+          justify-content: center; 
+        }
+        .slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+        }
+        .slide.active {
+          opacity: 1;
+        }
+        #section {
+            padding: 80px 10%;
+            min-height: 40vh;
+        }
   @media (max-width: 768px) {
     .hero h1 {
         font-size: 2rem;
